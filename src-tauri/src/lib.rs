@@ -11,6 +11,7 @@ pub struct ConversionSettings {
     pub quality: u32,
     pub compression_level: u32,
     pub overwrite: bool,
+    pub skip_frames: u32,
 }
 
 impl Default for ConversionSettings {
@@ -22,6 +23,7 @@ impl Default for ConversionSettings {
             quality: 55,
             compression_level: 6,
             overwrite: false,
+            skip_frames: 0,
         }
     }
 }
@@ -66,10 +68,20 @@ async fn convert_video(
     }
 
     // Build FFmpeg filter
-    let vf_filter = format!(
-        "fps={},scale='if(gt(iw,ih),{},-2)':'if(gt(iw,ih),-2,{})':flags=lanczos",
-        settings.fps, settings.max_dimension, settings.max_dimension
-    );
+    let mut filters = Vec::new();
+
+    if settings.skip_frames > 0 {
+        filters.push(format!("select='gte(n,{})'", settings.skip_frames));
+        filters.push("setpts=PTS-STARTPTS".to_string());
+    }
+
+    filters.push(format!("fps={}", settings.fps));
+    filters.push(format!(
+        "scale='if(gt(iw,ih),{},-2)':'if(gt(iw,ih),-2,{})':flags=lanczos",
+        settings.max_dimension, settings.max_dimension
+    ));
+
+    let vf_filter = filters.join(",");
 
     let output_str = output.to_string_lossy().to_string();
 

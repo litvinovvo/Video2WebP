@@ -66,6 +66,22 @@ const model = defineModel<ConversionSettings>({ required: true });
           <span class="input-suffix">frames</span>
         </div>
       </div>
+
+      <div class="setting-item">
+        <label for="skip_frames">
+          <span class="label-text">Skip Frames</span>
+          <span class="label-hint">Frames to skip at start</span>
+        </label>
+        <div class="input-group">
+          <input 
+            id="skip_frames"
+            type="number" 
+            v-model.number="model.skip_frames"
+            min="0"
+          />
+          <span class="input-suffix">frames</span>
+        </div>
+      </div>
       
       <div class="setting-item">
         <label for="quality">

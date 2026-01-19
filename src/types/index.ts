@@ -5,6 +5,7 @@ export interface ConversionSettings {
   quality: number;
   compression_level: number;
   overwrite: boolean;
+  skip_frames: number;
 }
 
 export interface ConversionResult {
@@ -33,4 +34,5 @@ export const defaultSettings: ConversionSettings = {
   quality: 55,
   compression_level: 6,
   overwrite: false,
+  skip_frames: 0,
 };
