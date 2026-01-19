@@ -234,7 +234,7 @@ function getStatusIcon(status: FileItem['status']) {
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 0;
+  min-height: 300px;
 }
 
 .panel-header {
@@ -418,6 +418,7 @@ function getStatusIcon(status: FileItem['status']) {
   align-items: center;
   gap: 8px;
   min-width: 0;
+  max-width: 100%;
 }
 
 .file-size {
@@ -481,6 +482,8 @@ function getStatusIcon(status: FileItem['status']) {
   padding: 16px 20px;
   border-top: 1px solid var(--border-color);
   flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .stats {

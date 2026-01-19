@@ -129,7 +129,8 @@ const model = defineModel<ConversionSettings>({ required: true });
   border-radius: var(--radius-lg);
   padding: 20px;
   flex: 1;
-  min-height: 0;
+  overflow: auto;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
 }
@@ -155,21 +156,15 @@ const model = defineModel<ConversionSettings>({ required: true });
 }
 
 .settings-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 16px;
-  overflow-y: auto;
-  flex: 1;
+  flex-direction: column;
 }
 
 .setting-item {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.setting-item.full-width {
-  grid-column: span 2;
 }
 
 .setting-item label {

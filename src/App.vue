@@ -280,6 +280,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0; /* Important for flex child truncation */
+}
+
+/* Scrollbar Corner Fix */
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .warning-banner {
@@ -320,6 +326,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow: hidden;
 }
 
 /* Scrollbar */
