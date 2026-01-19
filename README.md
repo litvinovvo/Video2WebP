@@ -1,7 +1,5 @@
 # Video2WebP
 
-# Video2WebP
-
 A simple desktop application built with Tauri, Vue 3, and Rust to easily convert video files into animated WebP images.
 
 > **Note**: This application is currently designed and configured for **macOS devices with Apple Silicon (M1/M2/M3/etc.)**.
