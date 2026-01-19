@@ -8,7 +8,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "build:app": "tauri build -v",
+    "build:app": "tauri build",
     "download:ffmpeg": "sh scripts/download-ffmpeg.sh"
   },
   "dependencies": {
